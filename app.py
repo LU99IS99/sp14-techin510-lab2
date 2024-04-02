@@ -17,10 +17,18 @@ bill_length_slider = st.slider(
     max(df["bill_length_mm"])
 )
 
-df = df[df["bill_length_mm"] > bill_length_slider]
+# df = df[df["bill_length_mm"] > bill_length_slider]
 
-species_filter = st.selectbox("Species", df["species".unique()])
-df = df[df["species"]] == species_filter
+
+species_filter = st.selectbox(
+    "Species", df["species"].unique(),
+    index=None
+)
+
+# st.write(species_filter)
+
+if species_filter:
+    df = df[df["species"]] == species_filter
 
 islands_filter = st.multiselect("Island", df["island"].unique())
 df = df[df["island"]] == islands_filter

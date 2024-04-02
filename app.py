@@ -19,11 +19,11 @@ bill_length_slider = st.slider(
 
 df = df[df["bill_length_mm"] > bill_length_slider]
 
-st.selectbox("Species", df["Adelle", "Chinstrap"])
+species_filter = st.selectbox("Species", df["species".unique()])
+df = df[df["species"]] == species_filter
 
-st.selectbox("Species", df["species".unique()])
-
-st.multiselect("Island", df["island"].unique())
+islands_filter = st.multiselect("Island", df["island"].unique())
+df = df[df["island"]] == islands_filter
 
 st.write(df.head())
 

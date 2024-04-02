@@ -33,7 +33,7 @@ with st.sidebar:
 df = df[df["bill_length_mm"] > bill_length_slider]
 
 
-st.expander("RAW Data"):
+with st.expander("RAW Data"):
     st.write(df)
 
 #Filter data

@@ -16,7 +16,7 @@ st.markdown("""
 df = pd.read_csv('https://raw.githubusercontent.com/mcnakhaee/palmerpenguins/master/palmerpenguins/data/penguins.csv')
 
 with st.sidebar:
-   # Input filter options
+    # Input filter options
     bill_length_slider = st.slider(
         "Bill Length(mm)",
         min(df["bill_length_mm"]),
@@ -30,8 +30,8 @@ with st.sidebar:
     islands_filter = st.multiselect("Island", df["island"].unique())
 
 
+df = df[df["bill_length_mm"] > bill_length_slider]
 
- df = df[df["bill_length_mm"] > bill_length_slider]
 
 st.expander("RAW Data"):
     st.write(df)
@@ -55,12 +55,5 @@ fig2 = px.scatter(
    df,
    y="bill_length_mm"
 )
-# st.write(species_filter)
 
-# if species_filter:
-#     df = df[df["species"]] == species_filter
-# if islands_filter:
-#     df = islands_filter = st.multiselect("Island", df["island"].unique())
-# df = df[df["island"]] == islands_filter
 st.write(df.head())
-

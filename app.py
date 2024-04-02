@@ -1,9 +1,8 @@
 import streamlit as st
-import seaborn as sns
-
+import pandas as pd
 st.set_page_config(
     page_title="Penguins Explorer",
-    page_icon="🥺",
+    page_icon="🐧",
     layout="centered",
     initial_sidebar_state="auto",
     menu_items=None
